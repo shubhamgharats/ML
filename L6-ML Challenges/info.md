@@ -60,7 +60,7 @@
 - Deploying ML models into real applications can be challenging.
 - Requires APIs, databases, monitoring, and scalability.
 
-**Example:** Integrating a recommendation model into an e-commerce website.
+**Example:** Integrating a recommendation model into an e-commerce website..
 
 ---
 
