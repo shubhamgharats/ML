@@ -26,7 +26,7 @@ In this section, we will focus on **Standardization**.
 
 ---
 
-# Standardization
+## Standardization
 
 **Standardization** transforms a feature so that its values are centered around a mean of `0` and have a standard deviation of `1`.
 
@@ -42,10 +42,6 @@ Where:
 - $\mu$ → Mean of the feature
 - $\sigma$ → Standard deviation
 - $X_i'$ → Standardized value
-
-
-::contentReference[oaicite:0]{index=0}
-
 
 ### Example
 
@@ -82,7 +78,7 @@ The standardized feature has approximately:
 
 ---
 
-# Geometric Intuition of Standardization
+## Geometric Intuition of Standardization
 
 Before standardization, features can have very different scales.
 
@@ -99,10 +95,10 @@ After standardization, both features are represented relative to their own mean 
 
 Standardization involves two main steps:
 
-1. **Mean Centering**  
+1. **Mean Centering**
    Subtract the mean from every value so that the data is centered around `0`.
 
-2. **Scaling by Standard Deviation**  
+2. **Scaling by Standard Deviation**
    Divide by the standard deviation so that the feature has a standard deviation of `1`.
 
 Therefore:
@@ -113,7 +109,7 @@ $$
 
 ---
 
-# Effect of Standardization
+## Effect of Standardization
 
 Standardization changes the numerical scale of the feature.
 
@@ -125,20 +121,20 @@ Age → 18, 23, 32, 43, ...
 
 After:
 Age' → -1.2, -0.9, -0.4, 0.1, ...
-
+```
 
 The actual values change, but the **relationship and ordering between observations remain the same**.
 
 ---
 
-# Standardization and Outliers
+## Standardization and Outliers
 
 Standardization **does not solve the problem of outliers**.
 
 This is because Standardization uses:
 
-* Mean
-* Standard deviation
+- Mean
+- Standard deviation
 
 Both can be affected by extreme values.
 
@@ -154,14 +150,14 @@ If an extremely large value is added, the mean and standard deviation can change
 
 ---
 
-# When Should We Use Standardization?
+## When Should We Use Standardization?
 
 Standardization is particularly useful for algorithms where **feature magnitude affects the result**.
 
 ### Common examples
 
 | Algorithm                      | Why Scaling Helps                                                             |
-| ------------------------------ | ----------------------------------------------------------------------------- |
+| ------------------------------- | ------------------------------------------------------------------------------ |
 | **K-Means**                    | Uses Euclidean distance                                                       |
 | **K-Nearest Neighbours (KNN)** | Distance between samples is affected by feature scale                         |
 | **PCA**                        | Variance is used to determine important directions                            |
@@ -173,16 +169,16 @@ Standardization is particularly useful for algorithms where **feature magnitude 
 
 ---
 
-# When Scaling Is Generally Not Required
+## When Scaling Is Generally Not Required
 
 Tree-based algorithms generally do not require feature scaling because their decisions are based on **feature thresholds**, rather than distances or gradient-based optimization.
 
 Examples:
 
-* **Decision Tree**
-* **Random Forest**
-* **Gradient Boosting**
-* **XGBoost**
+- **Decision Tree**
+- **Random Forest**
+- **Gradient Boosting**
+- **XGBoost**
 
 For example, a Decision Tree might learn:
 
@@ -200,7 +196,7 @@ The relative ordering of the values is preserved, so scaling usually does not pr
 
 ---
 
-# Standardization in Scikit-Learn
+## Standardization in Scikit-Learn
 
 The `StandardScaler` from Scikit-Learn can be used to perform standardization.
 
@@ -235,26 +231,17 @@ This prevents **data leakage** from the test set into the training process.
 
 ---
 
-# Key Takeaways
+## Key Takeaways
 
-* **Feature Scaling** brings numerical features to a comparable scale.
+- **Feature Scaling** brings numerical features to a comparable scale.
+- **Standardization** centers data around `0` and scales it to a standard deviation of `1`.
+- Formula:
 
-* **Standardization** centers data around `0` and scales it to a standard deviation of `1`.
+  $$X' = \frac{X-\mu}{\sigma}$$
 
-* Formula:
-
-  \(X' = \frac{X-\mu}{\sigma}\)
-
-* Standardization uses the **mean and standard deviation**.
-
-* It changes the scale but preserves the relative ordering of values.
-
-* Standardization **does not remove or fix outliers**.
-
-* It is useful for distance-based and many gradient-based algorithms.
-
-* Tree-based algorithms such as **Decision Trees and Random Forests generally do not require scaling**.
-
-* Always **fit the scaler on training data only**, then transform both training and test data using the same scaler.
-
-
+- Standardization uses the **mean and standard deviation**.
+- It changes the scale but preserves the relative ordering of values.
+- Standardization **does not remove or fix outliers**.
+- It is useful for distance-based and many gradient-based algorithms.
+- Tree-based algorithms such as **Decision Trees and Random Forests generally do not require scaling**.
+- Always **fit the scaler on training data only**, then transform both training and test data using the same scaler.
